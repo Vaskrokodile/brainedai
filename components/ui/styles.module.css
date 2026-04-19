@@ -1,0 +1,211 @@
+.panel {
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.panel:hover {
+  border-color: var(--glass-border-hover);
+}
+
+.ghost {
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+}
+
+.ghost:hover {
+  background: var(--glass);
+}
+
+.elevated {
+  background: var(--bg-elevated);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.elevated:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.buttonPrimary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.buttonPrimary:hover:not(:disabled) {
+  background: var(--accent-dim);
+}
+
+.buttonGhost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+}
+
+.buttonGhost:hover:not(:disabled) {
+  background: var(--glass);
+  border-color: var(--glass-border-hover);
+}
+
+.buttonIcon {
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.buttonIcon:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: var(--glass);
+}
+
+.buttonSmall {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.buttonLarge {
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all var(--transition-fast);
+}
+
+.input:focus {
+  border-color: var(--glass-border-hover);
+  background: var(--glass-hover);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.textarea {
+  min-height: 80px;
+  max-height: 200px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.select {
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+
+.select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+}
+
+.pill:hover {
+  border-color: var(--glass-border-hover);
+  color: var(--text-primary);
+}
+
+.pillActive {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.pillActive:hover {
+  background: var(--accent-dim);
+  color: var(--bg-primary);
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltipContent {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  z-index: 100;
+}
+
+.tooltip:hover .tooltipContent {
+  opacity: 1;
+  visibility: visible;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--glass-border);
+  border-top-color: var(--text-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

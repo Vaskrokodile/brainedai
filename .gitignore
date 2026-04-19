@@ -1,0 +1,5 @@
+node_modules/
+.next/
+skills/*.md
+!skills/default-brain.md
+!skills/soul.md

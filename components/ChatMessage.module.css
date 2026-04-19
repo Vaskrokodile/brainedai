@@ -1,0 +1,170 @@
+.bubble {
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+  animation: slideUp 0.3s ease-out;
+}
+
+.bubbleUser {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+}
+
+.avatarUser {
+  background: var(--text-primary);
+  color: var(--bg-deep);
+}
+
+.contentWrapper {
+  flex: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bubbleUser .contentWrapper {
+  align-items: flex-end;
+}
+
+.content {
+  padding: 16px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.contentUser {
+  background: var(--text-primary);
+  color: var(--bg-deep);
+  border: none;
+}
+
+.contentError {
+  border-color: rgba(255, 68, 68, 0.3);
+  background: rgba(255, 68, 68, 0.05);
+}
+
+.content h1, .content h2, .content h3 {
+  margin: 1em 0 0.5em;
+  font-weight: 600;
+}
+
+.content h1:first-child, .content h2:first-child, .content h3:first-child {
+  margin-top: 0;
+}
+
+.content p {
+  margin: 0.5em 0;
+}
+
+.content p:first-child {
+  margin-top: 0;
+}
+
+.content ul, .content ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+
+.content li {
+  margin: 0.25em 0;
+}
+
+.content pre {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin: 1em 0;
+  overflow-x: auto;
+}
+
+.content code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+}
+
+.content pre code {
+  display: block;
+  color: var(--text-primary);
+}
+
+.content :not(pre) > code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.contentUser :not(pre) > code {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.content strong {
+  font-weight: 600;
+}
+
+.imageContainer {
+  margin-top: 12px;
+}
+
+.attachedImage {
+  max-width: 300px;
+  max-height: 200px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 0 4px;
+}
+
+.metaUser {
+  flex-direction: row-reverse;
+}
+
+.timestamp {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.copyButton {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.copyButton:hover {
+  color: var(--text-primary);
+  background: var(--glass);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

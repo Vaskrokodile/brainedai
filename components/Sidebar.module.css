@@ -1,0 +1,246 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  background: var(--text-primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--bg-primary);
+}
+
+.logoText {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.logoSubtext {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nav {
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.navItem:hover {
+  background: var(--glass);
+  color: var(--text-primary);
+}
+
+.navItemActive {
+  background: var(--glass);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+}
+
+.section {
+  padding: 16px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.modelSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modelOptions {
+  display: flex;
+  gap: 6px;
+}
+
+.modelOption {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modelOption:hover {
+  background: var(--glass);
+  border-color: var(--glass-border-hover);
+}
+
+.modelOptionActive {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.modelOptionActive:hover {
+  background: var(--accent-dim);
+}
+
+.modelIcon {
+  font-size: 16px;
+}
+
+.intelligenceSelector {
+  margin-top: 8px;
+}
+
+.intelligenceOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.intelligenceOption {
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.intelligenceOption:hover {
+  background: var(--glass);
+}
+
+.intelligenceOptionActive {
+  background: var(--glass);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.stats {
+  margin-top: auto;
+  padding: 16px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.statLabel {
+  color: var(--text-muted);
+}
+
+.statValue {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.browseToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.browseLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.browseSwitch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: var(--glass-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  border: none;
+}
+
+.browseSwitchActive {
+  background: var(--text-primary);
+}
+
+.browseSwitch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  transition: transform var(--transition-fast);
+}
+
+.browseSwitchActive::after {
+  transform: translateX(20px);
+}
+
+.footer {
+  padding: 16px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+}
