@@ -33,7 +33,7 @@
   flex-direction: column;
   transform: translateX(-100%);
   transition: transform var(--transition-fast);
-  z-index: 999;
+  z-index: 998;
   padding-top: 70px;
   overflow-y: auto;
   backdrop-filter: none;
@@ -41,6 +41,10 @@
 
 .miniSidebar.open {
   transform: translateX(0);
+}
+
+body.sidebar-open {
+  padding-left: 240px;
 }
 
 .logo {

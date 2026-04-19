@@ -73,11 +73,12 @@ export default function BrainPage() {
   return (
     <>
       <MiniSidebar />
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>Brain</h1>
-          <p className={styles.subtitle}>Manage your AI's knowledge, personality, and skills</p>
-        </div>
+      <div className={styles.contentWrapper}>
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <h1 className={styles.title}>Brain</h1>
+            <p className={styles.subtitle}>Manage your AI's knowledge, personality, and skills</p>
+          </div>
 
       <div className={styles.tabs}>
         <button
@@ -239,6 +240,7 @@ export default function BrainPage() {
           </div>
         )}
       </div>
+    </div>
     </div>
     </>
   );

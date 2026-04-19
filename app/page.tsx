@@ -80,24 +80,26 @@ function ChatInterface() {
   return (
     <>
       <MiniSidebar />
-      <div className={styles.chatContainer}>
-        <ChatHeader />
-        <div className={styles.messagesArea}>
-          {messages.map((message) => (
-            <ChatMessage key={message.id} message={message} />
-          ))}
-          {isLoading && (
-            <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-muted)' }}>
-              <div className="loading">
-                <div className="loadingDot" />
-                <div className="loadingDot" />
-                <div className="loadingDot" />
+      <div className={styles.contentWrapper}>
+        <div className={styles.chatContainer}>
+          <ChatHeader />
+          <div className={styles.messagesArea}>
+            {messages.map((message) => (
+              <ChatMessage key={message.id} message={message} />
+            ))}
+            {isLoading && (
+              <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-muted)' }}>
+                <div className="loading">
+                  <div className="loadingDot" />
+                  <div className="loadingDot" />
+                  <div className="loadingDot" />
+                </div>
               </div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
+            )}
+            <div ref={messagesEndRef} />
+          </div>
+          <ChatInput onSend={handleSend} disabled={isLoading} />
         </div>
-        <ChatInput onSend={handleSend} disabled={isLoading} />
       </div>
     </>
   );

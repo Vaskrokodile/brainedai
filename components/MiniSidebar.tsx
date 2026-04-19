@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, MessageSquare, Brain, Sparkles, Zap, Cpu, Layers } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -18,6 +18,14 @@ export function MiniSidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { model, setModel, browseEnabled, setBrowseEnabled } = useChat();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('sidebar-open');
+    } else {
+      document.body.classList.remove('sidebar-open');
+    }
+  }, [isOpen]);
 
   return (
     <>
