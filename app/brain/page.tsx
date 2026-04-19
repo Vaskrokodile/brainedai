@@ -75,10 +75,7 @@ export default function BrainPage() {
       <MiniSidebar />
       <div className={styles.container}>
         <div className={styles.header}>
-          <h1 className={styles.title}>
-            <Sparkles size={28} />
-            Brain
-          </h1>
+          <h1 className={styles.title}>Brain</h1>
           <p className={styles.subtitle}>Manage your AI's knowledge, personality, and skills</p>
         </div>
 

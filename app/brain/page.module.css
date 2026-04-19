@@ -19,6 +19,11 @@
   margin-bottom: 8px;
 }
 
+.title svg {
+  display: flex;
+  align-items: center;
+}
+
 .subtitle {
   font-size: 14px;
   color: var(--text-secondary);
