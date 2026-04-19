@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { useChat } from '@/context/ChatContext';
+import { IntelligenceDropdown } from '@/components/IntelligenceDropdown';
 import styles from './ChatInput.module.css';
 
 interface ChatInputProps {
@@ -65,6 +66,7 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
       )}
       <div className={styles.inputWrapper}>
         <div className={styles.actions}>
+          <IntelligenceDropdown />
           <label className={styles.actionBtn} title="Attach image">
             <input
               type="file"

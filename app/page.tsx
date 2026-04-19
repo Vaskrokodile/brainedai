@@ -5,7 +5,6 @@ import { BrainProvider } from '@/context/BrainContext';
 import { MiniSidebar } from '@/components/MiniSidebar';
 import ChatMessage from '@/components/ChatMessage';
 import ChatInput from '@/components/ChatInput';
-import { IntelligenceDropdown } from '@/components/IntelligenceDropdown';
 import { useRef, useEffect } from 'react';
 import { Settings } from 'lucide-react';
 import Link from 'next/link';
@@ -14,9 +13,6 @@ import styles from './page.module.css';
 function ChatHeader() {
   return (
     <header className={styles.header}>
-      <div className={styles.headerLeft}>
-        <IntelligenceDropdown />
-      </div>
       <div className={styles.headerRight}>
         <Link href="/brain" className={styles.settingsButton}>
           <Settings size={18} />
