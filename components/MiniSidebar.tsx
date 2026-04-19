@@ -1,17 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, MessageSquare, Brain, Sparkles, Zap, Settings } from 'lucide-react';
+import { Menu, X, MessageSquare, Brain, Sparkles, Zap, Cpu, Layers } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useChat } from '@/context/ChatContext';
 import { ModelType } from '@/lib/types';
 import styles from './MiniSidebar.module.css';
 
-const MODELS: { value: ModelType; label: string; icon: string }[] = [
-  { value: 'grok', label: 'Grok', icon: '⚡' },
-  { value: 'gemini', label: 'Gemini', icon: '✨' },
-  { value: 'fusion', label: 'Fusion', icon: '🔮' }
+const MODELS: { value: ModelType; label: string; icon: React.ReactNode }[] = [
+  { value: 'grok', label: 'Grok', icon: <Zap size={16} /> },
+  { value: 'gemini', label: 'Gemini', icon: <Sparkles size={16} /> },
+  { value: 'fusion', label: 'Fusion', icon: <Layers size={16} /> }
 ];
 
 export function MiniSidebar() {
@@ -29,10 +29,14 @@ export function MiniSidebar() {
       </button>
 
       <aside className={`${styles.miniSidebar} ${isOpen ? styles.open : ''}`}>
-        <div className={styles.logo}>
-          <div className={styles.logoIcon}>M</div>
-          <div className={styles.logoText}>MineCom</div>
-        </div>
+        <div className={styles.sidebarContent}>
+          <div className={styles.logo}>
+            <div className={styles.logoIcon}>M</div>
+            <div className={styles.logoWrapper}>
+              <div className={styles.logoText}>MineCom</div>
+              <div className={styles.logoSubtext}>Intelligence</div>
+            </div>
+          </div>
 
         <nav className={styles.nav}>
           <Link
@@ -78,6 +82,7 @@ export function MiniSidebar() {
             </div>
           </div>
         )}
+        </div>
       </aside>
     </>
   );
