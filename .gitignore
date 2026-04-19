@@ -3,3 +3,4 @@ node_modules/
 skills/*.md
 !skills/default-brain.md
 !skills/soul.md
+.env

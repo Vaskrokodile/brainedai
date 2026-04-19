@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useBrain } from '@/context/BrainContext';
 import { Plus, Save, Trash2, Edit2, X, Check, FileText, Sparkles } from 'lucide-react';
+import { MiniSidebar } from '@/components/MiniSidebar';
 import styles from './page.module.css';
 
 type TabType = 'skills' | 'brain' | 'soul';
@@ -70,14 +71,16 @@ export default function BrainPage() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>
-          <Sparkles size={28} />
-          Brain
-        </h1>
-        <p className={styles.subtitle}>Manage your AI's knowledge, personality, and skills</p>
-      </div>
+    <>
+      <MiniSidebar />
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>
+            <Sparkles size={28} />
+            Brain
+          </h1>
+          <p className={styles.subtitle}>Manage your AI's knowledge, personality, and skills</p>
+        </div>
 
       <div className={styles.tabs}>
         <button
@@ -240,5 +243,6 @@ export default function BrainPage() {
         )}
       </div>
     </div>
+    </>
   );
 }

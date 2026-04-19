@@ -8,14 +8,14 @@ export interface GrokMessage {
 
 export interface GrokOptions {
   messages: GrokMessage[];
-  model?: 'grok-2' | 'grok-2-vision';
+  model?: 'grok-4';
   temperature?: number;
   maxTokens?: number;
   stream?: boolean;
 }
 
 const MODEL_CONFIG = {
-  'grok-2': {
+  'grok-4': {
     temperature: { normal: 0.3, high: 0.5, 'extra-high': 0.7, max: 0.9 },
     maxTokens: { normal: 2048, high: 4096, 'extra-high': 8192, max: 16384 }
   }
@@ -24,7 +24,7 @@ const MODEL_CONFIG = {
 export async function chatWithGrok(
   options: GrokOptions
 ): Promise<{ content: string; sources?: string[] }> {
-  const { messages, model = 'grok-2', temperature = 0.5, maxTokens = 4096, stream = false } = options;
+  const { messages, model = 'grok-4', temperature = 0.5, maxTokens = 4096, stream = false } = options;
 
   const response = await fetch(GROK_API_URL, {
     method: 'POST',
@@ -61,7 +61,7 @@ export async function chatWithGrokStream(
   options: GrokOptions,
   onChunk: (chunk: string) => void
 ): Promise<string> {
-  const { messages, model = 'grok-2', temperature = 0.5, maxTokens = 4096 } = options;
+  const { messages, model = 'grok-4', temperature = 0.5, maxTokens = 4096 } = options;
 
   const response = await fetch(GROK_API_URL, {
     method: 'POST',
@@ -115,7 +115,7 @@ export async function chatWithGrokStream(
 
 export function getGrokModelConfig(intelligence: 'normal' | 'high' | 'extra-high' | 'max') {
   return {
-    temperature: MODEL_CONFIG['grok-2'].temperature[intelligence],
-    maxTokens: MODEL_CONFIG['grok-2'].maxTokens[intelligence]
+    temperature: MODEL_CONFIG['grok-4'].temperature[intelligence],
+    maxTokens: MODEL_CONFIG['grok-4'].maxTokens[intelligence]
   };
 }

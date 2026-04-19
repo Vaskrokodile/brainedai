@@ -3,7 +3,6 @@ import './globals.css';
 import { ChatProvider } from '@/context/ChatContext';
 import { BrainProvider } from '@/context/BrainContext';
 import { SettingsProvider } from '@/context/SettingsContext';
-import { Sidebar } from '@/components/Sidebar';
 import styles from './layout.module.css';
 
 export const metadata: Metadata = {
@@ -25,12 +24,7 @@ export default function RootLayout({
         <SettingsProvider>
           <BrainProvider>
             <ChatProvider>
-              <div className={styles.layout}>
-                <Sidebar />
-                <main className={styles.main}>
-                  {children}
-                </main>
-              </div>
+              {children}
             </ChatProvider>
           </BrainProvider>
         </SettingsProvider>

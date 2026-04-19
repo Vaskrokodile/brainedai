@@ -28,6 +28,34 @@
   gap: 16px;
 }
 
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settingsButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.settingsButton:hover {
+  background: var(--glass);
+  border-color: var(--glass-border-hover);
+  color: var(--text-primary);
+}
+
 .modelBadge {
   display: flex;
   align-items: center;

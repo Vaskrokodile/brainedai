@@ -2,38 +2,26 @@
 
 import { ChatProvider, useChat } from '@/context/ChatContext';
 import { BrainProvider } from '@/context/BrainContext';
-import { Sidebar } from '@/components/Sidebar';
+import { MiniSidebar } from '@/components/MiniSidebar';
 import ChatMessage from '@/components/ChatMessage';
 import ChatInput from '@/components/ChatInput';
+import { IntelligenceDropdown } from '@/components/IntelligenceDropdown';
 import { useRef, useEffect } from 'react';
+import { Settings } from 'lucide-react';
+import Link from 'next/link';
 import styles from './page.module.css';
 
-const MODEL_LABELS: Record<string, { label: string; icon: string }> = {
-  grok: { label: 'Grok', icon: '⚡' },
-  gemini: { label: 'Gemini', icon: '✨' },
-  fusion: { label: 'Fusion', icon: '🔮' }
-};
-
-const INTELLIGENCE_LABELS: Record<string, string> = {
-  normal: 'Normal',
-  high: 'High',
-  'extra-high': 'Extra High',
-  max: 'Max'
-};
-
 function ChatHeader() {
-  const { model, expertise } = useChat();
-  
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
-        <div className={styles.modelBadge}>
-          <span className={styles.modelBadgeIcon}>{MODEL_LABELS[model]?.icon}</span>
-          {MODEL_LABELS[model]?.label}
-        </div>
-        <span className={styles.intelligenceBadge}>
-          {INTELLIGENCE_LABELS[expertise]} Intelligence
-        </span>
+        <IntelligenceDropdown />
+      </div>
+      <div className={styles.headerRight}>
+        <Link href="/brain" className={styles.settingsButton}>
+          <Settings size={18} />
+          <span>Brain Settings</span>
+        </Link>
       </div>
     </header>
   );
@@ -90,39 +78,33 @@ function ChatInterface() {
   };
 
   return (
-    <div className={styles.chatContainer}>
-      <ChatHeader />
-      <div className={styles.messagesArea}>
-        {messages.map((message) => (
-          <ChatMessage key={message.id} message={message} />
-        ))}
-        {isLoading && (
-          <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-muted)' }}>
-            <div className="loading">
-              <div className="loadingDot" />
-              <div className="loadingDot" />
-              <div className="loadingDot" />
+    <>
+      <MiniSidebar />
+      <div className={styles.chatContainer}>
+        <ChatHeader />
+        <div className={styles.messagesArea}>
+          {messages.map((message) => (
+            <ChatMessage key={message.id} message={message} />
+          ))}
+          {isLoading && (
+            <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-muted)' }}>
+              <div className="loading">
+                <div className="loadingDot" />
+                <div className="loadingDot" />
+                <div className="loadingDot" />
+              </div>
             </div>
-          </div>
-        )}
-        <div ref={messagesEndRef} />
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+        <ChatInput onSend={handleSend} disabled={isLoading} />
       </div>
-      <ChatInput onSend={handleSend} disabled={isLoading} />
-    </div>
+    </>
   );
 }
 
 export default function Home() {
   return (
-    <BrainProvider>
-      <ChatProvider>
-        <div style={{ display: 'flex', height: '100vh' }}>
-          <Sidebar />
-          <main className={styles.main}>
-            <ChatInterface />
-          </main>
-        </div>
-      </ChatProvider>
-    </BrainProvider>
+    <ChatInterface />
   );
 }
